@@ -1,23 +1,28 @@
 <%- include('partials/header.ejs'); -%>
+<h2>
+    total todo: <%= total %>
+</h2>
 
-<div class="box" id="heading">
-    <h1>
-        todolist
-    </h1>
-</div>
+<main>
+    <div class="containerheading">
+        <div class="box" id="heading">
+            <h1>
+                todolist
+            </h1>
+        </div>
+    </div>
+    <div class>
 
-<div class="box">
-    <div class="item">
-        <p>
-            todo#1
-        </p>
     </div>
-    <div class="item">
-        <p>
-            todo#2
-        </p>
+    <div class="box">
+        <% allToDo.forEach((todo) => { %>
+            <div class="item">
+                <p>
+                    <%= todo.activity %>
+                </p>
+            </div>
+        <% }); %>
     </div>
-</div>
 
 <%- include('partials/footer.ejs'); -%>
 

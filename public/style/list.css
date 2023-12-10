@@ -40,17 +40,29 @@ main{
 h1 {
     color: #747474;
     padding: 10px;
+    margin: 0;
+}
+
+.containerheading {
+    align-items: center;
+}
+
+h2 {
+    position: absolute;
+    left: 75px;
+    top: 50px;
 }
 
 .item:last-child {
     border-bottom: 0;
 }
 
-p{
+p {
     font-size: 20px;
     margin: 0;
     padding: 20px 0;
     color: rgb(14, 0, 120)
 }
+
 
 
