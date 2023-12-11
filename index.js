@@ -63,9 +63,21 @@ app.get("/", async (req, res) => {
     const allToDo = await fetchAllToDo(currentUserId);
     // console.log(allToDo);
     res.render("index.ejs",{
+        toDoTitle: "Today",
         allToDo: allToDo,
         total: allToDo.length
     });
+});
+
+app.post("/add", async (req, res) => {
+    const newToDo = req.body.newItem;
+    const insertNewToDo = await db.query(
+        "INSERT INTO activities(user_id, activity) VALUES ($1, $2) RETURNING *",
+        [currentUserId, newToDo]
+    );
+    res.redirect("/");
+    // console.log(insertNewToDo.rows);
+
 });
 
 app.listen(port, () => {
