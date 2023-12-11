@@ -1,6 +1,6 @@
 
 html{
-    background: linear-gradient(to left top, #f5c764, #64bde6);
+    background: linear-gradient(to left top, #8a0303, #ea7575);
     min-height: 1000px;
 }
 
@@ -22,10 +22,11 @@ main{
     background: white;
     border-radius: 7.5px;
     box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+    position: relative;
 }
 
 #heading{
-    background: linear-gradient(to left top, #a9d7dc, #e2edb2);
+    background: linear-gradient(to left top, #1f41dbd5, #000000);
 }
 
 .item{
@@ -36,7 +37,7 @@ main{
 }
 
 h1 {
-    color: #747474;
+    color: #c4c6a5;
     padding: 10px;
     margin: 0;
 }
@@ -64,7 +65,19 @@ p {
 
 .item * {
     text-align: center;
-    margin-left: 20px;
+    margin-left: 40px;
+}
+
+.cross {
+    margin-top: 2.5px;
+    position: absolute;
+    right: 0;
+}
+
+.cross input {
+    max-width: 50%;
+    max-height: 50%;
+
 }
 
 

@@ -52,7 +52,7 @@ let currentUserId = 1;
 
 async function fetchAllToDo(currentUserId){
     const result = await db.query(
-        "SELECT activity FROM activities WHERE user_id = $1 ORDER BY act_id ASC",
+        "SELECT act_id, activity FROM activities WHERE user_id = $1 ORDER BY act_id ASC;",
         [currentUserId]);
     const allToDo = result.rows.map((todo) => todo);
     return allToDo;
@@ -72,12 +72,22 @@ app.get("/", async (req, res) => {
 app.post("/add", async (req, res) => {
     const newToDo = req.body.newItem;
     const insertNewToDo = await db.query(
-        "INSERT INTO activities(user_id, activity) VALUES ($1, $2) RETURNING *",
+        "INSERT INTO activities(user_id, activity) VALUES ($1, $2) RETURNING *;",
         [currentUserId, newToDo]
     );
-    res.redirect("/");
     // console.log(insertNewToDo.rows);
+    res.redirect("/");
 
+});
+
+app.post("/delete", async (req, res) => {
+    const deleteItemId = req.body.deleteItemId;
+    // console.log(req.body);
+    await db.query(
+        "DELETE FROM activities WHERE act_id = $1;",
+        [deleteItemId]
+    );
+    res.redirect("/");
 });
 
 app.listen(port, () => {

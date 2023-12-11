@@ -16,6 +16,11 @@
     </div>
     <div class="box">
         <% allToDo.forEach((todo) => { %>
+            <form class="cross" action="/delete" method="post">
+                <input type="hidden" name="deleteItemId" value= "<%= todo.act_id %>" >
+                <input type="image" src="assets/cross.png" alt="delete" >
+            </form>
+
             <div class="item">
                 <p>
                     <%= todo.activity %>
