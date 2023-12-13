@@ -94,6 +94,17 @@ app.post("/delete", async (req, res) => {
     res.redirect("/");
 });
 
+app.post("/edit", async (req, res) => {
+    const updateItemId = req.body.updateItemId;
+    const updatedItemToDo = req.body.updatedItemToDo;
+    // console.log(req.body);
+    await db.query(
+        "UPDATE activities SET activity = $1 WHERE act_id = $2",
+        [updatedItemToDo, updateItemId]
+    );
+    res.redirect("/");
+});
+
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });

@@ -18,21 +18,57 @@
         <% allToDo.forEach((todo) => { %>
             <form class="cross" action="/delete" method="post">
                 <input type="hidden" name="deleteItemId" value= "<%= todo.act_id %>" >
-                <input type="image" src="assets/cross.png" alt="delete" >
+                <input type="image" src="assets/cross.png" alt="delete" title="Complete this todo?">
             </form>
 
             <div class="item">
-                <p>
+                <div id="list<%=todo.act_id%>" class="unordered-list">
+
+                </div>
+
+                <p id="activity<%=todo.act_id%>">
                     <%= todo.activity %>
                 </p>
+
+                <form action="/edit" method="post" class="edit">
+                    <input type="hidden" name="updateItemId" value="<%=todo.act_id%>">
+                    <input id="input<%=todo.act_id%>" type="text" class="form_field" name="updatedItemToDo" value="<%= todo.activity %>" autocomplete="off"
+                        hidden="true" />
+                    <button id="done<%=todo.act_id%>" class="edit" type="submit" hidden>
+                        <img class="check" src="assets/check-solid.svg" alt="tick image">
+                    </button>
+                </form>
+
+                <button id="edit<%=todo.act_id%>" class="edit" onclick="handler('<%=todo.act_id%>')">
+                    <img class="pencil" src="assets/pencil-solid.svg" alt="pencil image">
+                </button>
             </div>
         <% }); %>
 
-        <form action="/add" method="post" class="item">
+        <form action="/add" method="post" class="item ">
             <input type="text" name="newItem" placeholder="new Item" autocomplete="off" autofocus="false" class="form_field" required>
             <button type="submit" name="toDo" value="<%= toDoTitle %>" class="add btn-hover color-1">add</button>
         </form>
     </div>
+
+    <script>
+        function handler(id) {
+            // Hide other elements and show the input and done button
+            document.getElementById("list" + id).setAttribute("hidden", true);
+            document.getElementById("activity" + id).setAttribute("hidden", true);
+            document.getElementById("edit" + id).setAttribute("hidden", true);
+            document.getElementById("done" + id).removeAttribute("hidden");
+            var inputElement = document.getElementById("input" + id);
+            inputElement.removeAttribute("hidden");
+
+            // Set the autofocus after making the input visible
+            inputElement.focus();
+
+            // Set cursor to the end of the input text
+            var inputValueLength = inputElement.value.length;
+            inputElement.setSelectionRange(inputValueLength, inputValueLength);
+        }
+    </script>
 
 
 

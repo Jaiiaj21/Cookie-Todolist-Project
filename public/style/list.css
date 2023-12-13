@@ -65,8 +65,9 @@ p {
 
 .item * {
     /* text-align: center; */
-    margin-left: 40px;
+    margin-left: 20px;
 }
+
 
 .cross {
     margin-top: 2.5px;
@@ -75,6 +76,11 @@ p {
 }
 
 .cross input {
+    max-width: 50%;
+    max-height: 50%;
+}
+
+input[type="image"] {
     max-width: 50%;
     max-height: 50%;
 }
@@ -88,9 +94,10 @@ p {
     outline: 0;
     font-size: 1.3rem;
     color: rgb(0, 0, 0);
-    padding: 7px 0;
+    padding: 4px 0;
     background: transparent;
     transition: border-color 0.2s;
+    margin-left: 30px;
 }
 
 .form_field:focus {
@@ -98,7 +105,7 @@ p {
       opacity: 0.5;
       color:#11998e;
     }
-    padding-bottom: 6px;
+    padding-bottom: 4px;
     border-width: 3px;
     border-image: linear-gradient(to right, #11998e, #38ef7d);
     border-image-slice: 1;
@@ -110,9 +117,8 @@ p {
     box-sizing: border-box;
 }
 
-  /* reset input */
 
-  .btn-hover {
+.btn-hover {
     width: 100px;
     font-size: 16px;
     font-weight: 600;
@@ -144,6 +150,35 @@ p {
     box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
 }
 
+.unordered-list {
+    background-image: linear-gradient(to right top, #1b6d3a, #40e495, #30dd8a, #2bb673);
+    width: 10px;
+    height: 10px;
+    margin-left: 20px;
+    border-radius: 50%;
+}
+
+form.edit {
+    display: flex;
+    margin: 10px;
+}
+
+button.edit {
+    margin-left: 0px;
+    margin-right: 20px;
+    border: none;
+    background: none;
+}
+
+.pencil {
+    height: 15px;
+    margin: 0;
+}
+
+.check {
+    height: 17px;
+    margin-left: 20px;
+}
 
 
 
