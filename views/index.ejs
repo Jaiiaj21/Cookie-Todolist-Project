@@ -29,8 +29,8 @@
         <% }); %>
 
         <form action="/add" method="post" class="item">
-            <input type="text" name="newItem" placeholder="new Item" autocomplete="off" autofocus="true">
-            <button class="add" type="submit" name="toDo" value="<%= toDoTitle %>">+</button>
+            <input type="text" name="newItem" placeholder="new Item" autocomplete="off" autofocus="false" class="form_field" required>
+            <button type="submit" name="toDo" value="<%= toDoTitle %>" class="add btn-hover color-1">add</button>
         </form>
     </div>
 

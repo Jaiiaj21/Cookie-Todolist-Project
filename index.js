@@ -10,8 +10,8 @@ const db = new pg.Client({
     user: "postgres",
     host: "localhost",
     database: "Todolist",
-    password: "123456",
-    port: 5433
+    password: "Jai21",
+    port: 5432
 });
 
 db.connect();
@@ -71,12 +71,16 @@ app.get("/", async (req, res) => {
 
 app.post("/add", async (req, res) => {
     const newToDo = req.body.newItem;
-    const insertNewToDo = await db.query(
-        "INSERT INTO activities(user_id, activity) VALUES ($1, $2) RETURNING *;",
-        [currentUserId, newToDo]
-    );
-    // console.log(insertNewToDo.rows);
-    res.redirect("/");
+    if(newToDo.length !== 0){
+        const insertNewToDo = await db.query(
+            "INSERT INTO activities(user_id, activity) VALUES ($1, $2) RETURNING *;",
+            [currentUserId, newToDo]
+        );
+        // console.log(insertNewToDo.rows);
+        res.redirect("/");
+    }else{
+
+    }
 
 });
 

@@ -1,6 +1,6 @@
 
 html{
-    background: linear-gradient(to left top, #8a0303, #ea7575);
+    background: linear-gradient(to right bottom, #0be2ac, #015728);
     min-height: 1000px;
 }
 
@@ -26,13 +26,13 @@ main{
 }
 
 #heading{
-    background: linear-gradient(to left top, #1f41dbd5, #000000);
+    background: linear-gradient(to left top, #64e48ad5, #004640);
 }
 
 .item{
     min-height: 70px;
     display: flex;
-    border-bottom: 1px solid #ff0000;
+    border-bottom: 1px solid rgb(0, 83, 14);
     align-items: center;
 }
 
@@ -64,7 +64,7 @@ p {
 }
 
 .item * {
-    text-align: center;
+    /* text-align: center; */
     margin-left: 40px;
 }
 
@@ -77,7 +77,73 @@ p {
 .cross input {
     max-width: 50%;
     max-height: 50%;
-
 }
+
+.form_field {
+    font-family: inherit;
+    /* width: 40px; */
+    min-width: 50px;
+    border: 0;
+    border-bottom: 2px solid rgb(129, 120, 120);
+    outline: 0;
+    font-size: 1.3rem;
+    color: rgb(0, 0, 0);
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.form_field:focus {
+    &::placeholder {
+      opacity: 0.5;
+      color:#11998e;
+    }
+    padding-bottom: 6px;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #11998e, #38ef7d);
+    border-image-slice: 1;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+  /* reset input */
+
+  .btn-hover {
+    width: 100px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 30px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+    background-position: 100% 0;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover.color-1 {
+    background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+
+
 
 
