@@ -53,13 +53,26 @@
 
     <script>
         function handler(id) {
+            // Reset the state for all items
+            var allItems = document.querySelectorAll(".unordered-list");
+            allItems.forEach((item) => {
+                var itemId = item.id.replace('list', '');
+                document.getElementById("list" + itemId).removeAttribute("hidden");
+                document.getElementById("activity" + itemId).removeAttribute("hidden");
+                document.getElementById("edit" + itemId).removeAttribute("hidden");
+                document.getElementById("input" + itemId).setAttribute("hidden", true);
+                document.getElementById("done" + itemId).setAttribute("hidden", true);
+            });
+
+
             // Hide other elements and show the input and done button
             document.getElementById("list" + id).setAttribute("hidden", true);
             document.getElementById("activity" + id).setAttribute("hidden", true);
             document.getElementById("edit" + id).setAttribute("hidden", true);
-            document.getElementById("done" + id).removeAttribute("hidden");
+
             var inputElement = document.getElementById("input" + id);
             inputElement.removeAttribute("hidden");
+            document.getElementById("done" + id).removeAttribute("hidden");
 
             // Set the autofocus after making the input visible
             inputElement.focus();
@@ -67,6 +80,8 @@
             // Set cursor to the end of the input text
             var inputValueLength = inputElement.value.length;
             inputElement.setSelectionRange(inputValueLength, inputValueLength);
+
+
         }
     </script>
 
